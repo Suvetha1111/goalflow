@@ -39,7 +39,11 @@ app.use('/api/goals',     goalRoutes);
 app.use('/api/tasks',     taskRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
-// Health check
+// Root & health check
+app.get('/', (req, res) => {
+  res.json({ name: 'GoalFlow API', version: '1.0.0', status: 'running' });
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
