@@ -4,9 +4,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // In production VITE_API_URL=https://goalflow-nine.vercel.app
-  // In local dev it's empty so Vite proxy handles /api
-  baseURL: (import.meta.env.VITE_API_URL || '') + '/api',
+  // In production: VITE_API_URL=https://goalflow-nine.vercel.app/api
+  // In local dev: leave unset — Vite proxy handles /api
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
